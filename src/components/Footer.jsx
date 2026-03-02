@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TreePine, MapPin, Mail, Phone, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { TreePine, MapPin, Mail, Phone, Facebook, Linkedin, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -14,23 +14,28 @@ const Footer = () => {
             <span>Green Landscapes</span>
           </div>
           <p className="text-gray-300 text-sm leading-relaxed">
-            Restoring nature, empowering communities. We are dedicated to creating sustainable green landscapes for future generations.
+            Sustainable landscapes where socio-economic growth thrives in harmony with nature.
           </p>
+          {/* Trust Signal: Registration Info */}
+          <div className="text-xs text-brand-light/80 font-mono pt-2 border-t border-white/10">
+            <p>Reg No: 052439868</p>
+            <p>TIN: 501132570</p>
+          </div>
           <div className="flex gap-4 pt-2">
-            {/* Social Placeholders */}
-            <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-brand-earth transition-colors"><Facebook size={18}/></a>
-            <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-brand-earth transition-colors"><Twitter size={18}/></a>
-            <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-brand-earth transition-colors"><Linkedin size={18}/></a>
+            {/* WhatsApp is explicitly mentioned in docs */}
+            <a href="https://wa.me/231888431534" className="p-2 bg-white/10 rounded-full hover:bg-brand-earth transition-colors" aria-label="WhatsApp"><MessageCircle size={18}/></a>
+            <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-brand-earth transition-colors" aria-label="Facebook"><Facebook size={18}/></a>
+            <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-brand-earth transition-colors" aria-label="LinkedIn"><Linkedin size={18}/></a>
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Essential Pages */}
         <div>
           <h4 className="text-lg font-bold mb-6 text-brand-earth">Essential Pages</h4>
           <ul className="space-y-3 text-sm text-gray-300">
-            <li><Link to="/about" className="hover:text-white hover:translate-x-1 inline-block transition-all">About Our Story</Link></li>
-            <li><Link to="/projects" className="hover:text-white hover:translate-x-1 inline-block transition-all">Our Work</Link></li>
-            <li><Link to="/impact" className="hover:text-white hover:translate-x-1 inline-block transition-all">Impact Reports</Link></li>
+            <li><Link to="/about" className="hover:text-white hover:translate-x-1 inline-block transition-all">Our Profile</Link></li>
+            <li><Link to="/projects" className="hover:text-white hover:translate-x-1 inline-block transition-all">Projects & Impact</Link></li>
+            <li><Link to="/impact" className="hover:text-white hover:translate-x-1 inline-block transition-all">Reports</Link></li>
             <li><Link to="/contact" className="hover:text-white hover:translate-x-1 inline-block transition-all">Contact Us</Link></li>
           </ul>
         </div>
@@ -41,30 +46,34 @@ const Footer = () => {
           <ul className="space-y-4 text-sm text-gray-300">
             <li className="flex items-start gap-3">
               <MapPin className="text-brand-earth shrink-0" size={18} />
-              <span>Accra, Ghana<br/>Greater Accra Region</span>
+              <span>72nd SKD Boulevard,<br/>Paynesville City, Montserrado<br/>Liberia</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="text-brand-earth shrink-0" size={18} />
-              <span>+233 XX XXX XXXX</span>
+              <span>+231 77 042 9791</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <Phone className="text-brand-earth shrink-0" size={18} />
+              <span>+231 88 843 1534 (WhatsApp)</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="text-brand-earth shrink-0" size={18} />
-              <span>info@greenlandscapes.org</span>
+              <span className="break-all">greenlanscapes.ini@gmail.com</span>
             </li>
           </ul>
         </div>
 
-        {/* Newsletter / Call to Action */}
+        {/* Newsletter */}
         <div>
           <h4 className="text-lg font-bold mb-6 text-brand-earth">Stay Updated</h4>
-          <p className="text-sm text-gray-300 mb-4">Subscribe to receive our annual reports and news.</p>
+          <p className="text-sm text-gray-300 mb-4">Subscribe to receive our annual reports and news from the field.</p>
           <form className="flex flex-col gap-2">
             <input 
               type="email" 
               placeholder="Your email address" 
               className="bg-white/10 border border-white/20 rounded px-4 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-brand-earth"
             />
-            <button className="bg-brand-earth text-white py-2 rounded text-sm font-semibold hover:bg-[#7a5e45] transition-colors">
+            <button className="bg-brand-earth text-white py-2 rounded text-sm font-semibold hover:bg-[#7a5e45] transition-colors cursor-pointer">
               Subscribe
             </button>
           </form>

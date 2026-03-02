@@ -36,8 +36,8 @@ const Navbar = () => {
         
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="p-2 bg-brand-green text-white rounded-lg group-hover:bg-brand-light transition-colors">
-            <TreePine size={24} /> 
+          <div className="p-2 text-white rounded-lg group-hover:bg-brand-light transition-colors">
+           <img src="/images/logos/GLIlogo.jpeg" alt="Green Landscapes Initiative Logo" className="w-8 h-8 object-contain" />
           </div>
           <span className={`font-bold text-xl tracking-wide ${scrolled ? 'text-brand-green' : 'text-brand-green md:text-white'}`}>
             Green Landscapes

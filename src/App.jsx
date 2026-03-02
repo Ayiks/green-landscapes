@@ -35,10 +35,24 @@ function App() {
 
 // Helper component to scroll to top when page changes
 const ScrollToTop = () => {
-  const { pathname } = useLocation(); // You will need to import useLocation
+  const { pathname } = useLocation();
+
   React.useEffect(() => {
-    window.scrollTo(0, 0);
+    // Wrap in a setTimeout to push the scroll to the end of the execution queue.
+    // This ensures the new page DOM has fully painted on mobile before scrolling.
+    const timeoutId = setTimeout(() => {
+      // 1. Standard window scroll (simpler syntax often works better on mobile)
+      window.scrollTo(0, 0);
+      
+      // 2. Fallbacks for strict mobile browsers (like older iOS Safari)
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0;
+    }, 10); // A tiny 10ms delay is imperceptible but fixes the mobile paint issue
+
+    // Cleanup the timeout
+    return () => clearTimeout(timeoutId);
   }, [pathname]);
+
   return null;
 };
 

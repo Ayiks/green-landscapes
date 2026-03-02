@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Clock, Facebook, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -11,7 +10,7 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
           <p className="text-lg text-brand-bg/80">
-            Have questions or want to partner with us? We'd love to hear from you.
+            Based in Liberia, working globally. Contact us for partnerships or inquiries.
           </p>
         </div>
       </section>
@@ -30,46 +29,49 @@ const Contact = () => {
                  <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
                  <div className="space-y-8">
                    <div className="flex items-start gap-4">
-                     <MapPin className="text-brand-earth mt-1" size={24} />
+                     <MapPin className="text-brand-earth mt-1 shrink-0" size={24} />
                      <div>
                        <p className="font-bold text-lg">Headquarters</p>
                        <p className="text-brand-bg/80 leading-relaxed">
-                         12 Independence Avenue<br/>
-                         Accra, Greater Accra Region<br/>
-                         Ghana
+                         72nd SKD Boulevard<br/>
+                         Paynesville City, Montserrado County<br/>
+                         Liberia
                        </p>
                      </div>
                    </div>
                    
                    <div className="flex items-start gap-4">
-                     <Phone className="text-brand-earth mt-1" size={24} />
+                     <Phone className="text-brand-earth mt-1 shrink-0" size={24} />
                      <div>
-                       <p className="font-bold text-lg">Phone</p>
-                       <p className="text-brand-bg/80">+233 20 000 0000</p>
-                       <p className="text-brand-bg/80">+233 30 000 0000</p>
+                       <p className="font-bold text-lg">Phone / WhatsApp</p>
+                       <p className="text-brand-bg/80">+231 77 042 9791</p>
+                       <p className="text-brand-bg/80">+231 88 843 1534</p>
                      </div>
                    </div>
 
                    <div className="flex items-start gap-4">
-                     <Mail className="text-brand-earth mt-1" size={24} />
+                     <Mail className="text-brand-earth mt-1 shrink-0" size={24} />
                      <div>
                        <p className="font-bold text-lg">Email</p>
-                       <p className="text-brand-bg/80">info@greenlandscapes.org</p>
-                       <p className="text-brand-bg/80">partners@greenlandscapes.org</p>
+                       <p className="text-brand-bg/80">greenlanscapes.ini@gmail.com</p>
                      </div>
                    </div>
                    
                    <div className="flex items-start gap-4">
-                     <Clock className="text-brand-earth mt-1" size={24} />
+                     <Clock className="text-brand-earth mt-1 shrink-0" size={24} />
                      <div>
-                       <p className="font-bold text-lg">Office Hours</p>
-                       <p className="text-brand-bg/80">Mon - Fri: 8:00 AM - 5:00 PM</p>
+                       <p className="font-bold text-lg">Operating Hours</p>
+                       <p className="text-brand-bg/80">Mon - Fri: 8:30 AM - 5:00 PM</p>
                      </div>
                    </div>
                  </div>
                </div>
 
-               {/* Social Icons could go here */}
+               {/* Social Icons */}
+               <div className="flex gap-4 mt-8">
+                  <a href="#" className="p-2 bg-white/20 rounded-full hover:bg-brand-earth transition-colors"><MessageCircle size={20}/></a>
+                  <a href="#" className="p-2 bg-white/20 rounded-full hover:bg-brand-earth transition-colors"><Facebook size={20}/></a>
+               </div>
             </div>
 
             {/* Right: Form */}
@@ -79,35 +81,34 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-bold text-gray-600">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green focus:ring-1 focus:ring-brand-green outline-none transition-all bg-gray-50" placeholder="Kwame" />
+                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="Enter name" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-bold text-gray-600">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green focus:ring-1 focus:ring-brand-green outline-none transition-all bg-gray-50" placeholder="Mensah" />
+                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="Enter name" />
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-bold text-gray-600">Email Address</label>
-                  <input type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green focus:ring-1 focus:ring-brand-green outline-none transition-all bg-gray-50" placeholder="kwame@example.com" />
+                  <input type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="email@example.com" />
                 </div>
 
                 <div className="flex flex-col gap-2">
                    <label className="text-sm font-bold text-gray-600">Subject</label>
-                   <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green focus:ring-1 focus:ring-brand-green outline-none transition-all bg-gray-50">
-                      <option>General Inquiry</option>
-                      <option>Partnership Proposal</option>
+                   <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50">
+                      <option>General Partnership</option>
+                      <option>Project Inquiry (Lofa/Nimba/Sinoe)</option>
                       <option>Volunteering</option>
-                      <option>Report an Issue</option>
                    </select>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-bold text-gray-600">Message</label>
-                  <textarea rows="4" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green focus:ring-1 focus:ring-brand-green outline-none transition-all bg-gray-50" placeholder="How can we help you?"></textarea>
+                  <textarea rows="4" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="How can we collaborate?"></textarea>
                 </div>
 
-                <button type="submit" className="w-full bg-brand-earth text-white font-bold py-4 rounded-xl hover:bg-[#7a5e45] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <button type="submit" className="w-full bg-brand-earth text-white font-bold py-4 rounded-xl hover:bg-[#7a5e45] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer">
                   Send Message <Send size={18} />
                 </button>
               </form>
@@ -116,12 +117,12 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
+      
       {/* --- MAP PLACEHOLDER --- */}
       <section className="h-96 w-full bg-gray-200 relative grayscale">
          {/* In a real project, you would embed a Google Map iframe here */}
          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254236.6513079989!2d-0.3472097!3d5.5912087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.9307580371665!2d-10.718266817509251!3d6.272835609841825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf0a03185dfc66b5%3A0x58c9d809005d59d2!2sGreen%20Landscapes%20Initiatives!5e0!3m2!1sen!2sgh!4v1770989084422!5m2!1sen!2sgh" 
             width="100%" 
             height="100%" 
             style={{border:0}} 
@@ -130,7 +131,6 @@ const Contact = () => {
             title="Google Map"
          ></iframe>
       </section>
-
     </div>
   );
 };

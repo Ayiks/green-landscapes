@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, TrendingUp, Users, Heart, Check, FileText } from 'lucide-react';
+import { Download, TrendingUp, Users, Sprout, Map, CheckCircle } from 'lucide-react';
 
 const Impact = () => {
   return (
@@ -15,113 +15,84 @@ const Impact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
-            Our Impact
+            Real Impact, Real Data
           </motion.h1>
           <p className="text-lg text-brand-bg/80 max-w-2xl mx-auto">
-            Transparency is our core value. See how your contributions translate into real-world change.
+            From Lofa to Sinoe, we monitor every seedling and support every farmer. 
+            Transparency is the root of our success.
           </p>
         </div>
       </section>
 
-      {/* --- KEY METRICS (Animated) --- */}
+      {/* --- KEY METRICS (Live Data from Profile) --- */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-6">
             {[
-              { label: "Survival Rate of Trees", value: "85%", icon: <TrendingUp className="text-brand-green" size={24}/> },
-              { label: "Women Empowered", value: "450+", icon: <Users className="text-brand-green" size={24}/> },
-              { label: "Community Projects", value: "12", icon: <Check className="text-brand-green" size={24}/> }
+              { label: "Seedling Survival Rate", value: "89%", icon: <TrendingUp className="text-brand-green" size={24}/>, desc: "4,897 of 5,500 indigenous trees survived" },
+              { label: "Farmers Supported", value: "133", icon: <Users className="text-brand-green" size={24}/>, desc: "72 men and 61 women trained" },
+              { label: "Seedlings Planted", value: "57k+", icon: <Sprout className="text-brand-green" size={24}/>, desc: "Including Cocoa, Cashew & Avocado" },
+              { label: "Counties Reached", value: "7", icon: <Map className="text-brand-green" size={24}/>, desc: "Across Liberia's key landscapes" }
             ].map((stat, i) => (
               <motion.div 
                 key={i}
                 whileHover={{ y: -5 }}
-                className="p-8 rounded-2xl bg-brand-bg border border-brand-green/10 text-center shadow-sm"
+                className="p-6 rounded-2xl bg-brand-bg border border-brand-green/10 text-center shadow-sm hover:shadow-md transition-all"
               >
                 <div className="flex justify-center mb-4">{stat.icon}</div>
-                <h3 className="text-4xl font-bold text-brand-green mb-2">{stat.value}</h3>
-                <p className="text-gray-600 font-medium uppercase text-sm tracking-wider">{stat.label}</p>
+                <h3 className="text-3xl font-bold text-brand-green mb-1">{stat.value}</h3>
+                <p className="text-gray-800 font-bold uppercase text-xs tracking-wider mb-2">{stat.label}</p>
+                <p className="text-gray-500 text-xs leading-tight">{stat.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- FINANCIAL TRANSPARENCY (Trust Factor) --- */}
+      {/* --- TRANSPARENCY & PARTNERS --- */}
       <section className="py-20 bg-brand-bg">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-brand-light font-bold uppercase tracking-widest mb-2 text-sm">Transparency</h2>
-            <h3 className="text-3xl font-bold text-brand-green mb-6">Where Your Money Goes</h3>
+            <h2 className="text-brand-light font-bold uppercase tracking-widest mb-2 text-sm">Our Partners</h2>
+            <h3 className="text-3xl font-bold text-brand-green mb-6">Trusted by Leaders in Conservation</h3>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              We believe in complete openness. Every dollar donated is meticulously allocated to maximize impact on the ground, with minimal administrative overhead.
+              We work with major national and international organizations to deliver evidence-based programming. 
+              Our funding models include project contracts and co-finance grants, ensuring every dollar is accounted for.
             </p>
             
-            {/* Simple Animated Bar Chart */}
-            <div className="space-y-6">
-              {[
-                { label: "Direct Project Costs", width: "80%" },
-                { label: "Community Training", width: "15%" },
-                { label: "Administration", width: "5%" }
-              ].map((item, i) => (
-                <div key={i}>
-                  <div className="flex justify-between text-sm font-bold text-gray-700 mb-1">
-                    <span>{item.label}</span>
-                    <span>{item.width}</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: item.width }}
-                      transition={{ duration: 1, delay: 0.2 }}
-                      className="h-full bg-brand-green rounded-full"
-                    />
-                  </div>
-                </div>
+            <div className="flex flex-wrap gap-4">
+              {["SESDev", "Proforest", "Siemenpuu Foundation", "FDA (Liberia)"].map((partner) => (
+                 <span key={partner} className="px-4 py-2 bg-white rounded-full text-brand-green font-bold text-sm shadow-sm flex items-center gap-2">
+                    <CheckCircle size={14}/> {partner}
+                 </span>
               ))}
             </div>
           </div>
 
+          {/* Downloadable Reports */}
           <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-earth">
             <h4 className="text-xl font-bold text-brand-green mb-6 flex items-center gap-2">
-              <FileText size={20}/> Annual Reports
+              <Download size={20}/> Technical Reports
             </h4>
             <div className="space-y-4">
-              {[2023, 2022, 2021].map((year) => (
-                <div key={year} className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:bg-brand-bg/50 transition-colors group cursor-pointer">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-brand-green/10 rounded-lg text-brand-green">
-                      <Download size={18} />
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-800">{year} Impact Report</p>
-                      <p className="text-xs text-gray-400">PDF • 2.4 MB</p>
-                    </div>
-                  </div>
-                  <span className="text-sm font-bold text-brand-earth group-hover:underline">Download</span>
-                </div>
-              ))}
+              <div className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:bg-brand-bg/50 transition-colors group cursor-pointer">
+                 <div>
+                   <p className="font-bold text-gray-800">Resource Governance Assessment</p>
+                   <p className="text-xs text-gray-400">Lofa & Nimba County • PDF</p>
+                 </div>
+                 <span className="text-sm font-bold text-brand-earth group-hover:underline">View</span>
+              </div>
+              <div className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:bg-brand-bg/50 transition-colors group cursor-pointer">
+                 <div>
+                   <p className="font-bold text-gray-800">Socio-Economic Baseline Report</p>
+                   <p className="text-xs text-gray-400">Sinoe & Grand Gedeh • PDF</p>
+                 </div>
+                 <span className="text-sm font-bold text-brand-earth group-hover:underline">View</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* --- SUCCESS STORY HIGHLIGHT --- */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-           <h2 className="text-center text-3xl font-bold text-brand-green mb-12">Voices from the Field</h2>
-           <div className="bg-brand-green rounded-3xl p-8 md:p-16 text-white text-center relative overflow-hidden">
-              <Heart className="absolute top-8 left-8 text-white/10" size={120} />
-              <div className="relative z-10 max-w-3xl mx-auto">
-                 <p className="text-xl md:text-2xl font-light italic mb-8 leading-relaxed">
-                   "Before the GLI water project, our children walked 5km every morning before school. Now, they have clean water right in the schoolyard, and attendance has doubled."
-                 </p>
-                 <div className="font-bold text-lg">Aretha Mensah</div>
-                 <div className="text-brand-earth text-sm uppercase font-bold tracking-wider">Headmistress, Aburi District School</div>
-              </div>
-           </div>
-        </div>
-      </section>
-
     </div>
   );
 };

@@ -1,64 +1,91 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, ArrowRight, Filter, TreePine, Droplets, BookOpen, Sun } from 'lucide-react';
+import { MapPin, ArrowRight, Filter, FileText, CheckCircle, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// --- Mock Data (Replace with real data later) ---
+// --- Real Data from Organizational Profile Table ---
 const projectsData = [
   {
     id: 1,
-    title: "Northern Green Belt Restoration",
-    category: "Reforestation",
-    location: "Tamale, Northern Region",
+    title: "Strengthening Sustainability Practices in Community Forests - Phase II",
+    client: "Siemenpuu Foundation via SESDev",
+    location: "Lofa (Salayea) & Nimba (Saniquelleh Mah)",
+    category: "Community",
+    status: "Ongoing",
     image: "https://images.unsplash.com/photo-1542601906990-b4d3fb7d5c73?auto=format&fit=crop&q=80",
-    impact: "5,000 Trees Planted",
-    description: "Restoring degraded savannas to combat desertification and provide shade for local farming communities.",
-    icon: <TreePine size={18} />
+    description: "A 34-month initiative (2022-2025) focused on sustainable management and bio-monitoring. Key achievements include planting 5,500 indigenous seedlings with an 89% survival rate and training 133 farmers in agroforestry.",
+    link: "/publications/phase-2-report" // Placeholder for publication link
   },
   {
     id: 2,
-    title: "Clean Water for Aburi Schools",
-    category: "Community",
-    location: "Aburi, Eastern Region",
-    image: "https://images.unsplash.com/photo-1584972686776-3c252e07802b?auto=format&fit=crop&q=80",
-    impact: "3 Schools Served",
-    description: "Installing mechanized boreholes to ensure students have access to clean, safe drinking water.",
-    icon: <Droplets size={18} />
+    title: "Environmental & Socio-economic Baseline Assessment (Southeast)",
+    client: "Proforest",
+    location: "Sinoe, Grand Gedeh & River Gee Counties",
+    category: "Research",
+    status: "Completed",
+    image: "https://images.unsplash.com/photo-1448375240586-dfd8f3793371?auto=format&fit=crop&q=80",
+    description: "Documented prevailing ecological and socio-economic conditions to design tools for the Participatory Land Use Planning (PLUP) process. Enabled stakeholders to analyze land use activities effectively.",
+    link: "/publications/southeast-baseline"
   },
   {
     id: 3,
-    title: "Eco-Farming Workshop",
-    category: "Education",
-    location: "Volta Region",
-    image: "https://images.unsplash.com/photo-1621961458348-e53b89b68233?auto=format&fit=crop&q=80",
-    impact: "200 Farmers Trained",
-    description: "Teaching sustainable farming techniques that prevent soil erosion and increase crop yield.",
-    icon: <BookOpen size={18} />
+    title: "Stakeholder Mapping and Awareness Creation (Northwest)",
+    client: "Proforest",
+    location: "Cape Mount, Gbarpolu & Lofa Counties",
+    category: "Governance",
+    status: "Completed",
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80",
+    description: "Undertook stakeholder analysis to identify main actors and marginalized groups for the LFSP-PLUP. Facilitated awareness raising and organized validation meetings at district and national levels.",
+    link: "/publications/northwest-mapping"
   },
   {
     id: 4,
-    title: "Solar Lighting Initiative",
-    category: "Community",
-    location: "Upper West Region",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80",
-    impact: "50 Homes Lit",
-    description: "Providing solar lamps to off-grid communities to support evening studies and safety.",
-    icon: <Sun size={18} />
+    title: "Strengthening Sustainability Practices in Community Forests - Phase I",
+    client: "SESDev",
+    location: "Lofa & Nimba Counties",
+    category: "Governance",
+    status: "Completed",
+    image: "https://images.unsplash.com/photo-1621961458348-e53b89b68233?auto=format&fit=crop&q=80",
+    description: "Conducted natural resource governance assessments in 2 CFMAs. Verified legal and customary requirements and identified non-extractive income-generating practices for local communities.",
+    link: "/publications/phase-1-report"
   },
   {
     id: 5,
-    title: "Mangrove Protection Project",
-    category: "Reforestation",
-    location: "Coastal Belt",
+    title: "Mapping of Palm Oil Industry Actors in Liberia",
+    client: "SESDev",
+    location: "National (Liberia)",
+    category: "Research",
+    status: "Completed",
     image: "https://images.unsplash.com/photo-1619665567528-98442845c48b?auto=format&fit=crop&q=80",
-    impact: "10 Hectares Protected",
-    description: "Protecting vital mangrove ecosystems to support fish breeding and prevent coastal erosion.",
-    icon: <TreePine size={18} />
+    description: "Identified key plantation groups, midstream actors (communities), and upstream financiers. Delivered a comprehensive mapping report to support industry transparency.",
+    link: "/publications/palm-oil-mapping"
+  },
+  {
+    id: 6,
+    title: "Environmental & Socio-economic Baseline Assessment (Northwest)",
+    client: "Proforest",
+    location: "Cape Mount, Gbarpolu & Lofa Counties",
+    category: "Research",
+    status: "Completed",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80",
+    description: "Reviewed data and finalized tools for collecting environmental baselines. Supported the PLUP process by verifying field conditions and engaging national stakeholders.",
+    link: "/publications/northwest-baseline"
+  },
+  {
+    id: 7,
+    title: "Stakeholder Mapping and Awareness Creation (Southeast)",
+    client: "Proforest",
+    location: "Sinoe, Grand Gedeh & River Gee",
+    category: "Governance",
+    status: "Completed",
+    image: "https://images.unsplash.com/photo-1584972686776-3c252e07802b?auto=format&fit=crop&q=80",
+    description: "Identified actors with direct interest in the PLUP process. Prepared awareness materials and ensured marginalized stakeholders were reached during the planning phase.",
+    link: "/publications/southeast-mapping"
   }
 ];
 
 // Categories for the filter buttons
-const categories = ["All", "Reforestation", "Community", "Education"];
+const categories = ["All", "Governance", "Research", "Community"];
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -73,12 +100,11 @@ const Projects = () => {
       
       {/* --- HERO SECTION --- */}
       <section className="bg-brand-green text-white py-16 text-center relative overflow-hidden">
-         {/* Background pattern opacity */}
-         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+         <div className="absolute inset-0 bg-[url('https://maps.app.goo.gl/bDNWYuC356JuhUAh9')] opacity-10"></div>
          <div className="container mx-auto px-6 relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Work</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Projects</h1>
             <p className="text-lg text-brand-bg/80 max-w-2xl mx-auto">
-              See how we are transforming landscapes and lives across the region.
+              From baseline assessments to community forest management, explore our technical interventions across Liberia.
             </p>
          </div>
       </section>
@@ -118,44 +144,43 @@ const Projects = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
                   key={project.id}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group"
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group border border-gray-100"
                 >
                   {/* Image Area */}
-                  <div className="h-56 overflow-hidden relative">
+                  <div className="h-48 overflow-hidden relative">
                     <img 
                       src={project.image} 
                       alt={project.title} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    {/* Category Badge */}
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-green flex items-center gap-1 shadow-sm">
-                      {project.icon} {project.category}
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-green shadow-sm">
+                      {project.status}
                     </div>
                   </div>
 
                   {/* Content Area */}
                   <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex items-center gap-2 text-gray-400 text-xs font-semibold uppercase tracking-wider mb-3">
-                      <MapPin size={14} /> {project.location}
+                    <div className="flex items-start justify-between mb-3">
+                       <div className="text-xs font-bold text-brand-earth uppercase tracking-wider flex items-center gap-1">
+                          <MapPin size={12} /> {project.location}
+                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-brand-green transition-colors">
+                    <h3 className="text-lg font-bold text-brand-green mb-3 leading-tight group-hover:text-brand-light transition-colors">
                       {project.title}
                     </h3>
+
+                    <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                       <CheckCircle size={12}/> Client: {project.client}
+                    </div>
                     
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow border-t border-gray-50 pt-3">
                       {project.description}
                     </p>
 
-                    {/* Impact Metric (Important for Donors) */}
-                    <div className="bg-brand-bg p-3 rounded-lg border border-brand-green/10 mb-6">
-                      <p className="text-xs text-gray-500 uppercase font-bold">Key Impact</p>
-                      <p className="text-brand-earth font-bold text-lg">{project.impact}</p>
-                    </div>
-
-                    <button className="w-full py-3 border border-brand-green text-brand-green font-bold rounded-xl hover:bg-brand-green hover:text-white transition-all flex items-center justify-center gap-2">
-                      View Details <ArrowRight size={16} />
-                    </button>
+                    <Link to={project.link} className="w-full py-3 bg-gray-50 text-brand-green font-bold rounded-xl hover:bg-brand-green hover:text-white transition-all flex items-center justify-center gap-2 text-sm group-hover:shadow-md">
+                      <FileText size={16} /> View Publications
+                    </Link>
                   </div>
                 </motion.div>
               ))}
@@ -175,10 +200,10 @@ const Projects = () => {
       {/* --- CTA --- */}
       <section className="bg-brand-earth text-white py-16 text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-4">Want to support a specific project?</h2>
-          <p className="mb-8 opacity-90">Contact us to learn how you can sponsor a site.</p>
+          <h2 className="text-2xl font-bold mb-4">Interested in our research?</h2>
+          <p className="mb-8 opacity-90">Contact us to request full technical reports for any of the projects above.</p>
           <Link to="/contact" className="px-8 py-3 bg-white text-brand-earth rounded-full font-bold hover:bg-gray-100 transition-colors">
-            Get in Touch
+            Request Access
           </Link>
         </div>
       </section>
