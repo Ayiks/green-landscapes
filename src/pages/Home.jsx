@@ -8,7 +8,7 @@ const Home = () => {
     <div className="flex flex-col w-full">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-0 sm:pb-0 sm:h-screen">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-brand-green/50 mix-blend-multiply z-10" />
           <img 
@@ -18,7 +18,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="container mx-auto px-6 relative z-20 text-center text-white mt-16">
+        <div className="container mx-auto px-4 sm:px-6 relative z-20 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,10 +27,10 @@ const Home = () => {
             {/* <span className="inline-block py-1 px-4 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-bold tracking-widest uppercase mb-6">
               Est. 2020 • LBR No. 052439868
             </span> */}
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight drop-shadow-lg">
               Socio-Economic Growth in <br /> Harmony with Nature
             </h1>
-            <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-100 font-light leading-relaxed drop-shadow-md">
+            <p className="text-base sm:text-lg md:text-2xl mb-8 sm:mb-10 max-w-3xl mx-auto text-gray-100 font-light leading-relaxed drop-shadow-md">
               Promoting responsible natural resource development across Liberia through evidence-based programming and community empowerment.
             </p>
             

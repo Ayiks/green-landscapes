@@ -18,25 +18,25 @@ const About = () => {
     <div className="flex flex-col w-full pt-20">
       
       {/* --- HERO BANNER --- */}
-      <section className="bg-brand-green text-white py-20 relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 sm:py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621961458348-e53b89b68233?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
-        <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-4"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4"
           >
             Organizational Profile
           </motion.h1>
-          <p className="text-xl text-brand-bg/90 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-brand-bg/90 max-w-2xl mx-auto">
             Operational since October 2020 • Tax-Exempt • Mission Driven
           </p>
         </div>
       </section>
 
       {/* --- LEGAL STATUS & OVERVIEW (Trust Anchors) --- */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-start">
           <div>
             <h2 className="text-brand-light font-bold uppercase tracking-widest mb-2 text-sm">About GLI</h2>
             <h3 className="text-3xl font-bold text-brand-green mb-6">A Response to Landscape Degradation</h3>
@@ -50,9 +50,9 @@ const About = () => {
             </div>
             
             {/* Compliance Box */}
-            <div className="mt-8 p-6 bg-brand-bg border-l-4 border-brand-earth rounded-r-xl">
-               <h4 className="font-bold text-brand-green mb-2 flex items-center gap-2"><ShieldCheck size={20}/> Legal Standing</h4>
-               <ul className="text-sm text-gray-700 space-y-1">
+            <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-brand-bg border-l-4 border-brand-earth rounded-r-xl">
+               <h4 className="font-bold text-brand-green mb-2 flex items-center gap-2 text-sm sm:text-base"><ShieldCheck size={18}/> Legal Standing</h4>
+               <ul className="text-xs sm:text-sm text-gray-700 space-y-1">
                  <li><strong>Registration No:</strong> 052439868</li>
                  <li><strong>Tax Identification No (TIN):</strong> 501132570</li>
                  <li><strong>Status:</strong> Tax-exempt, Perpetual Duration</li>
@@ -60,12 +60,12 @@ const About = () => {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative mt-8 sm:mt-0">
              <div className="aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden shadow-xl">
                 <img src="https://flegtvpafacility.org/wp-content/uploads/2019/01/ghana-liberia-forest-visit-story-710x375.jpg" alt="Liberian Forestry" className="w-full h-full object-cover"/>
              </div>
-             <div className="absolute -bottom-6 -left-6 bg-brand-green text-white p-6 rounded-xl shadow-lg">
-                <p className="font-bold text-2xl">7 Counties</p>
+             <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-brand-green text-white p-4 sm:p-6 rounded-xl shadow-lg">
+                <p className="font-bold text-lg sm:text-2xl">7 Counties</p>
                 <p className="text-xs uppercase tracking-wide opacity-80">Operational Reach</p>
              </div>
           </div>
@@ -73,9 +73,9 @@ const About = () => {
       </section>
 
       {/* --- VISION & MISSION --- */}
-      <section className="py-20 bg-brand-bg">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="py-12 sm:py-16 md:py-20 bg-brand-bg">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}

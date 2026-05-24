@@ -6,22 +6,22 @@ const Contact = () => {
     <div className="flex flex-col w-full pt-20">
       
       {/* --- HERO --- */}
-      <section className="bg-brand-green text-white py-16 text-center">
-        <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-          <p className="text-lg text-brand-bg/80">
+      <section className="bg-brand-green text-white py-12 sm:py-16 text-center">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Get in Touch</h1>
+          <p className="text-base sm:text-lg text-brand-bg/80">
             Based in Liberia, working globally. Contact us for partnerships or inquiries.
           </p>
         </div>
       </section>
 
       {/* --- CONTACT CONTENT --- */}
-      <section className="py-20 bg-brand-bg relative">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 bg-white rounded-3xl shadow-xl overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-brand-bg relative">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden">
             
             {/* Left: Info Panel */}
-            <div className="bg-brand-green text-white p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
+            <div className="bg-brand-green text-white p-6 sm:p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
                {/* Decorative Circle */}
                <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
                
@@ -75,28 +75,28 @@ const Contact = () => {
             </div>
 
             {/* Right: Form */}
-            <div className="p-10 md:p-12">
-              <h3 className="text-2xl font-bold text-brand-green mb-6">Send us a Message</h3>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label className="text-sm font-bold text-gray-600">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="Enter name" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="text-sm font-bold text-gray-600">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="Enter name" />
+            <div className="p-6 sm:p-8 md:p-12">
+              <h3 className="text-xl sm:text-2xl font-bold text-brand-green mb-4 sm:mb-6">Send us a Message</h3>
+              <form className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div className="flex flex-col gap-1 sm:gap-2">
+                  <label className="text-xs sm:text-sm font-bold text-gray-600">First Name</label>
+                  <input type="text" className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="Enter name" />
+                </div>
+                <div className="flex flex-col gap-1 sm:gap-2">
+                  <label className="text-xs sm:text-sm font-bold text-gray-600">Last Name</label>
+                  <input type="text" className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="Enter name" />
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-gray-600">Email Address</label>
-                  <input type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="email@example.com" />
+                <div className="flex flex-col gap-1 sm:gap-2">
+                  <label className="text-xs sm:text-sm font-bold text-gray-600">Email Address</label>
+                  <input type="email" className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50" placeholder="email@example.com" />
                 </div>
 
-                <div className="flex flex-col gap-2">
-                   <label className="text-sm font-bold text-gray-600">Subject</label>
-                   <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50">
+                <div className="flex flex-col gap-1 sm:gap-2">
+                   <label className="text-xs sm:text-sm font-bold text-gray-600">Subject</label>
+                   <select className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-200 focus:border-brand-green outline-none bg-gray-50">
                       <option>General Partnership</option>
                       <option>Project Inquiry (Lofa/Nimba/Sinoe)</option>
                       <option>Volunteering</option>

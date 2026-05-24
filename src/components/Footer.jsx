@@ -4,11 +4,11 @@ import { TreePine, MapPin, Mail, Phone, Facebook, Linkedin, MessageCircle } from
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-green text-white pt-16 pb-8 border-t border-brand-light/20">
-      <div className="container mx-auto px-6 grid md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-brand-green text-white pt-12 sm:pt-16 pb-8 border-t border-brand-light/20">
+      <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12">
         
         {/* Brand Column */}
-        <div className="md:col-span-1 space-y-4">
+        <div className="sm:col-span-2 md:col-span-1 space-y-4">
           <div className="flex items-center gap-2 font-bold text-2xl tracking-wide">
             <TreePine className="text-brand-earth" size={28} />
             <span>Green Landscapes</span>

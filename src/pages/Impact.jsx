@@ -7,17 +7,17 @@ const Impact = () => {
     <div className="flex flex-col w-full pt-20">
       
       {/* --- HERO SECTION --- */}
-      <section className="bg-brand-green text-white py-20 text-center relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 sm:py-16 md:py-20 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"></div>
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
           >
             Real Impact, Real Data
           </motion.h1>
-          <p className="text-lg text-brand-bg/80 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-brand-bg/80 max-w-2xl mx-auto">
             From Lofa to Sinoe, we monitor every seedling and support every farmer. 
             Transparency is the root of our success.
           </p>
@@ -25,9 +25,9 @@ const Impact = () => {
       </section>
 
       {/* --- KEY METRICS (Live Data from Profile) --- */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-6">
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { label: "Seedling Survival Rate", value: "89%", icon: <TrendingUp className="text-brand-green" size={24}/>, desc: "4,897 of 5,500 indigenous trees survived" },
               { label: "Farmers Supported", value: "133", icon: <Users className="text-brand-green" size={24}/>, desc: "72 men and 61 women trained" },
@@ -50,8 +50,8 @@ const Impact = () => {
       </section>
 
       {/* --- TRANSPARENCY & PARTNERS --- */}
-      <section className="py-20 bg-brand-bg">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-12 sm:py-16 md:py-20 bg-brand-bg">
+        <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
           <div>
             <h2 className="text-brand-light font-bold uppercase tracking-widest mb-2 text-sm">Our Partners</h2>
             <h3 className="text-3xl font-bold text-brand-green mb-6">Trusted by Leaders in Conservation</h3>
@@ -70,7 +70,7 @@ const Impact = () => {
           </div>
 
           {/* Downloadable Reports */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-earth">
+          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border-t-4 border-brand-earth">
             <h4 className="text-xl font-bold text-brand-green mb-6 flex items-center gap-2">
               <Download size={20}/> Technical Reports
             </h4>

@@ -99,19 +99,19 @@ const Projects = () => {
     <div className="flex flex-col w-full pt-20">
       
       {/* --- HERO SECTION --- */}
-      <section className="bg-brand-green text-white py-16 text-center relative overflow-hidden">
+      <section className="bg-brand-green text-white py-12 sm:py-16 text-center relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://maps.app.goo.gl/bDNWYuC356JuhUAh9')] opacity-10"></div>
-         <div className="container mx-auto px-6 relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Projects</h1>
-            <p className="text-lg text-brand-bg/80 max-w-2xl mx-auto">
+         <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Our Projects</h1>
+            <p className="text-base sm:text-lg text-brand-bg/80 max-w-2xl mx-auto">
               From baseline assessments to community forest management, explore our technical interventions across Liberia.
             </p>
          </div>
       </section>
 
       {/* --- FILTER BAR --- */}
-      <section className="sticky top-20 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 py-4 shadow-sm">
-        <div className="container mx-auto px-6 flex flex-wrap justify-center gap-3">
+      <section className="sticky top-20 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 py-3 sm:py-4 shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6 flex flex-wrap justify-center gap-2 sm:gap-3">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -129,11 +129,11 @@ const Projects = () => {
       </section>
 
       {/* --- PROJECTS GRID --- */}
-      <section className="py-16 bg-brand-bg min-h-screen">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-16 bg-brand-bg min-h-screen">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div 
             layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
             <AnimatePresence>
               {filteredProjects.map((project) => (

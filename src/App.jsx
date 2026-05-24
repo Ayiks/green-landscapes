@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route , useLocation} from 'react-router-dom';
+import { HashRouter as Router, Routes, Route , useLocation} from 'react-router-dom';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import Home from '@pages/Home';
@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         
         {/* Main Content Area */}
-        <main className="flex-grow">
+        <main className="flex-grow w-full">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
