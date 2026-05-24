@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TreePine, MapPin, Mail, Phone, Facebook, Linkedin, MessageCircle } from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Linkedin, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,8 +9,12 @@ const Footer = () => {
         
         {/* Brand Column */}
         <div className="sm:col-span-2 md:col-span-1 space-y-4">
-          <div className="flex items-center gap-2 font-bold text-2xl tracking-wide">
-            <TreePine className="text-brand-earth" size={28} />
+          <div className="flex items-center gap-3 font-bold text-2xl tracking-wide">
+            <img
+              src="/images/logos/GLIlogo.jpeg"
+              alt="Green Landscapes Initiative Logo"
+              className="w-10 h-10 object-contain rounded bg-white p-0.5"
+            />
             <span>Green Landscapes</span>
           </div>
           <p className="text-gray-300 text-sm leading-relaxed">

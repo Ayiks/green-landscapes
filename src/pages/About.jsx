@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, ShieldCheck, Award, Briefcase, Heart, BookOpen, Anchor, Map, Activity } from 'lucide-react';
+import { Target, Eye, ShieldCheck, Award, Briefcase, Heart, BookOpen, Anchor, Map, Activity, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
@@ -200,6 +200,95 @@ const About = () => {
                 </div>
               ))}
            </div>
+        </div>
+      </section>
+
+      {/* --- EXECUTIVE DIRECTOR --- */}
+      <section className="py-12 sm:py-16 md:py-20 bg-brand-bg">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-brand-light font-bold uppercase tracking-widest mb-2 text-sm">Leadership</h2>
+              <h3 className="text-3xl font-bold text-brand-green">Executive Director</h3>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-3">
+              <div className="md:col-span-1 bg-brand-green/5 aspect-square md:aspect-auto flex items-center justify-center relative">
+                {/* Replace `src` with the Executive Director's photo when ready */}
+                <img
+                  src="/images/board/executive-director.jpg"
+                  alt="Executive Director"
+                  className="w-full h-full object-cover"
+                  onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                />
+                <div className="absolute inset-0 hidden flex-col items-center justify-center text-brand-green/40">
+                  <User size={80} />
+                  <p className="mt-3 text-xs uppercase tracking-widest">Photo coming soon</p>
+                </div>
+              </div>
+              <div className="md:col-span-2 p-6 sm:p-8 md:p-10">
+                <p className="text-xs font-bold uppercase tracking-widest text-brand-earth mb-2">Executive Director</p>
+                <h4 className="text-2xl sm:text-3xl font-bold text-brand-green mb-4">[Name to be added]</h4>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  A short biography will appear here — the Executive Director's professional background,
+                  areas of expertise, and the vision guiding GLI's work across Liberia's landscapes.
+                </p>
+                <div className="flex flex-wrap gap-3 text-xs">
+                  <span className="px-3 py-1 bg-brand-green/10 text-brand-green rounded-full font-semibold">Natural Resource Governance</span>
+                  <span className="px-3 py-1 bg-brand-earth/10 text-brand-earth rounded-full font-semibold">Landscape Restoration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- BOARD OF DIRECTORS --- */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-brand-light font-bold uppercase tracking-widest mb-2 text-sm">Governance</h2>
+            <h3 className="text-3xl font-bold text-brand-green mb-3">Board of Directors</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              GLI is governed by a board of professionals with decades of combined experience in
+              natural resource governance, community development, and conservation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              { name: '[Name to be added]', role: 'Chairperson', slug: 'chair' },
+              { name: '[Name to be added]', role: 'Vice Chairperson', slug: 'vice-chair' },
+              { name: '[Name to be added]', role: 'Secretary', slug: 'secretary' },
+              { name: '[Name to be added]', role: 'Treasurer', slug: 'treasurer' },
+              { name: '[Name to be added]', role: 'Member', slug: 'member-1' },
+              { name: '[Name to be added]', role: 'Member', slug: 'member-2' },
+            ].map((director) => (
+              <motion.div
+                key={director.slug}
+                whileHover={{ y: -6 }}
+                className="bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              >
+                <div className="aspect-[4/5] bg-brand-green/5 relative">
+                  {/* Replace src path with this director's photo when ready */}
+                  <img
+                    src={`/images/board/${director.slug}.jpg`}
+                    alt={director.role}
+                    className="w-full h-full object-cover"
+                    onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                  />
+                  <div className="absolute inset-0 hidden flex-col items-center justify-center text-brand-green/40">
+                    <User size={64} />
+                    <p className="mt-2 text-[10px] uppercase tracking-widest">Photo coming soon</p>
+                  </div>
+                </div>
+                <div className="p-5 text-center">
+                  <p className="text-xs font-bold uppercase tracking-widest text-brand-earth mb-1">{director.role}</p>
+                  <h4 className="font-bold text-brand-green">{director.name}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,21 +1,43 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, TreePine, Users, Sprout, ChevronDown, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const heroSlides = [
+  '/images/hero/forest-1.jpg',
+  '/images/hero/forest-2.jpg',
+  '/images/hero/forest-3.jpg',
+];
+
 const Home = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSlideIndex((i) => (i + 1) % heroSlides.length);
+    }, 6000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="flex flex-col w-full">
-      
+
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-0 sm:pb-0 sm:h-screen">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-20 sm:pb-0 sm:h-screen">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-brand-green/50 mix-blend-multiply z-10" />
-          <img 
-            src="https://www.undp.org/sites/g/files/zskgke326/files/2025-05/joanna-unsplash.png" 
-            alt="Liberian Forest Landscape" 
-            className="w-full h-full object-cover object-center scale-105"
-          />
+          <div className="absolute inset-0 bg-brand-green/55 mix-blend-multiply z-10" />
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={heroSlides[slideIndex]}
+              src={heroSlides[slideIndex]}
+              alt="Liberian Forest Landscape"
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 1, scale: 1.02 }}
+              exit={{ opacity: 0 }}
+              transition={{ opacity: { duration: 1.2 }, scale: { duration: 8, ease: 'linear' } }}
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          </AnimatePresence>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-20 text-center text-white">
@@ -46,7 +68,19 @@ const Home = () => {
           </motion.div>
         </div>
 
-        <motion.div 
+        {/* Slide indicators */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setSlideIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === slideIndex ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'}`}
+            />
+          ))}
+        </div>
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
