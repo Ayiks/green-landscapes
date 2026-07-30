@@ -244,7 +244,7 @@ const About = () => {
       </section>
 
       {/* --- BOARD OF DIRECTORS --- */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      {/* <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-brand-light font-bold uppercase tracking-widest mb-2 text-sm">Governance</h2>
@@ -270,7 +270,7 @@ const About = () => {
                 className="bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
               >
                 <div className="aspect-[4/5] bg-brand-green/5 relative">
-                  {/* Replace src path with this director's photo when ready */}
+                 
                   <img
                     src={`/images/board/${director.slug}.jpg`}
                     alt={director.role}
@@ -290,7 +290,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* --- CTA --- */}
       <section className="py-20 bg-white text-center">

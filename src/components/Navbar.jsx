@@ -39,7 +39,7 @@ const Navbar = () => {
             className="w-9 h-9 sm:w-10 sm:h-10 object-contain rounded"
           />
           <span className="font-bold text-sm sm:text-base md:text-lg lg:text-xl tracking-wide text-brand-green">
-            Green Landscapes Initiative
+            Green Landscapes Initiatives
           </span>
         </Link>
 

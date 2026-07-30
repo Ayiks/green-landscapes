@@ -15,7 +15,7 @@ const Footer = () => {
               alt="Green Landscapes Initiative Logo"
               className="w-10 h-10 object-contain rounded bg-white p-0.5"
             />
-            <span>Green Landscapes</span>
+            <span>Green Landscapes Initiatives</span>
           </div>
           <p className="text-gray-300 text-sm leading-relaxed">
             Sustainable landscapes where socio-economic growth thrives in harmony with nature.
